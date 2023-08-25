@@ -35,23 +35,23 @@ public class ExcelStatusController {
 	@Autowired
 	private ExcelStatusService excelStatusService;
 	
-	@PostMapping(value="/createExcelData" )
-//	@JsonAutoDetect(getterVisibility=Visibility.NONE)
-	public ResponseEntity<?> createExcelData(@RequestParam("file")MultipartFile file) throws Exception{
-		
-		if(ExcelHelperImpl.hasExcelFormat(file)) {
-			try {
-				excelStatusService.saveFile(file);
-				return new ResponseEntity<>(new SuccessReponseDto("Success","File Uploaded Successfully"),HttpStatus.CREATED);
-			} catch (Exception e) {
-				return new ResponseEntity<>(new ErrorResponseDto("failure", "failed to upload file"),HttpStatus.UNSUPPORTED_MEDIA_TYPE);
-			}
-		}
-//		return new ResponseEntity<>(new SuccessReponseDto("Success","File Uploaded Successfully"),HttpStatus.CREATED);
-//		else {
-		return new ResponseEntity<>(new ResponseMessage("Error","please upload correct file/file"),HttpStatus.BAD_REQUEST);
+//	@PostMapping(value="/createExcelData" )
+////	@JsonAutoDetect(getterVisibility=Visibility.NONE)
+//	public ResponseEntity<?> createExcelData(@RequestParam("file")MultipartFile file) throws Exception{
+//		
+//		if(ExcelHelperImpl.hasExcelFormat(file)) {
+//			try {
+//				excelStatusService.saveFile(file);
+//				return new ResponseEntity<>(new SuccessReponseDto("Success","File Uploaded Successfully"),HttpStatus.CREATED);
+//			} catch (Exception e) {
+//				return new ResponseEntity<>(new ErrorResponseDto("failure", "failed to upload file"),HttpStatus.UNSUPPORTED_MEDIA_TYPE);
+//			}
 //		}
-	}
+////		return new ResponseEntity<>(new SuccessReponseDto("Success","File Uploaded Successfully"),HttpStatus.CREATED);
+////		else {
+//		return new ResponseEntity<>(new ResponseMessage("Error","please upload correct file/file"),HttpStatus.BAD_REQUEST);
+////		}
+//	}
 	
 	@PostMapping("addData")
 	public String addData(@RequestParam("file")MultipartFile file) {

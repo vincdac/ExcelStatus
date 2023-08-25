@@ -78,13 +78,13 @@ public class ExcelHelperImpl {
 					excelStatusEntity.setAmount(currentCell.getNumericCellValue());
 				break;
 				case 6:
-					String stringCellValue = currentCell.getStringCellValue();
-					if(stringCellValue.isEmpty()) {
-					excelStatusEntity.setUmrn("1");
-					}
-					else {
-						excelStatusEntity.setUmrn(stringCellValue);
-					}
+//					String stringCellValue = currentCell.getStringCellValue();
+//					if(stringCellValue.isEmpty()) {
+					excelStatusEntity.setUmrn(currentCell.getStringCellValue());
+//					}
+//					else {
+//						excelStatusEntity.setUmrn(stringCellValue);
+//					}
 //					System.out.println("empty");
 				break;
 				case 7:
